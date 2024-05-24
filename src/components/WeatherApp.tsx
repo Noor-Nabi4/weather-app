@@ -17,8 +17,6 @@ const WeatherApp: React.FC = () => {
       const response = await fetch(url);
       const data = await response.json();
 
-      console.log(data);
-
       setWeatherData({
         location: {
           name: data.location.name,
@@ -67,8 +65,7 @@ const WeatherApp: React.FC = () => {
 
   useEffect(() => {
     if (position) {
-      console.log("position", position?.latitude, position?.longitude);
-        fetchWeather(position?.latitude + ',' + position?.longitude)
+      fetchWeather(position?.latitude + ',' + position?.longitude)
     }
 
   }, [position]);
@@ -78,6 +75,7 @@ const WeatherApp: React.FC = () => {
       fetchWeather(location);
     }
   };
+
 
   return (
     <div className="container">
@@ -93,7 +91,7 @@ const WeatherApp: React.FC = () => {
       {weatherData && (
         <div className="weather-info">
           <h2 id="location">{weatherData?.location.name}</h2>
-          {/* <Image src={weatherData.current.condition.icon} alt="Weather Icon" width={60}height={60}/> */}
+          <Image src={`https:${weatherData.current.condition.icon}`} alt="Weather Icon" width={64}height={64} className='inline-block'/>
           <p id="temperature">{weatherData?.current.temp_c}°C</p>
           <div className="weather-table">
             <table>
