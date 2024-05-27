@@ -55,7 +55,7 @@ const WeatherApp: React.FC = () => {
           vis_miles: data.current.vis_miles,
           uv: data.current.uv,
           gust_mph: data.current.gust_mph,
-          gust_kph: data.current.gust
+          gust_kph: data.current.gust_kph
         }
       });
     } catch (error) {
